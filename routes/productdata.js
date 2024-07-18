@@ -4,10 +4,10 @@ const router = express.Router();
 
 // router.post('/user/register', registerUser)
 
-router.post('/user/add', uploadProducts);
-router.get('/user/list', getProducts);
-router.get('/user/:productID', getSingleProduct);
-router.put('/user/update/:productID', updateProduct)
-router.delete('/user/delete/:productname/:price/:productId', deleteproduct)
+router.post('/product/add', uploadProducts);
+router.get('/product/list', getProducts);
+router.get('/product/:productID', getSingleProduct);
+router.put('/product/update/:productID', updateProduct)
+router.delete('/product/delete/:productname/:price/:productId', deleteproduct)
 
 module.exports = router;

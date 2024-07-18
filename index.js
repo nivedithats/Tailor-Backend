@@ -5,7 +5,7 @@ const connectDatabase = require('./config/db');
 const feedbackRoutes = require('./routes/feedback')
 const requestRoutes = require('./routes/requestorder');
 const userRoutes = require('./routes/user');
-const ProductRoutes = require('./routes/productdata');
+const productRoutes = require('./routes/productdata');
 
 const app = express();
 connectDatabase(); //connect mongodb
@@ -15,10 +15,10 @@ connectDatabase(); //connect mongodb
 app.use(cors());
  app.use(bodyParser.json()); 
  
- app.use('/api',ProductRoutes);
+ app.use('/api',productRoutes);
 
 
 
-app.listen(4001, ()=>{
-    console.log('server is running at localhost:4001');
+app.listen(4005, ()=>{
+    console.log('server is running at localhost:4005');
 })
