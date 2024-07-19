@@ -86,13 +86,17 @@ exports.LoginUser = async (req, res) =>{
       console.log(checkUser);
       if(!checkUser){
         res.status(400).json({message:'user is not found'})
+        res.end()
       }
       if(req.body.password != checkUser.password){
         res.status(400).json({message:'password invalid'})
+        res.end()
       }
 
       res.status(200).json({message:'success'})
+      re.end()
   } catch (error) {
       res.status(500).json({message:"internal server error"})
+      res.end()
   }
 }
