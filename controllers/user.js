@@ -78,3 +78,21 @@ exports.deleteUserDetails = async(req, res) =>{
     res.json({message:error.message})
   }
 }
+
+exports.LoginUser = async (req, res) =>{
+  const {email, password} = req.body;
+  try {
+      const checkUser =await UserDatabase.findOne({email})
+      console.log(checkUser);
+      if(!checkUser){
+        res.status(400).json({message:'user is not found'})
+      }
+      if(req.body.password != checkUser.password){
+        res.status(400).json({message:'password invalid'})
+      }
+
+      res.status(200).json({message:'success'})
+  } catch (error) {
+      res.status(500).json({message:"internal server error"})
+  }
+}
